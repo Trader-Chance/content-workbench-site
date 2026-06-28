@@ -48,9 +48,6 @@ input {
   padding: 24px clamp(18px, 4vw, 56px);
   background: var(--surface);
   border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
-  z-index: 5;
 }
 
 h1,
@@ -759,10 +756,6 @@ h3 {
 }
 
 @media (max-width: 640px) {
-  .topbar {
-    position: static;
-  }
-
   .topnote,
   .hero-copy p:not(.eyebrow) {
     width: 100%;
