@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>交易决策训练图谱 MVP</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MVP / Source-grounded</p>
+        <h1>交易决策训练图谱</h1>
+      </div>
+      <p class="topnote">所有内容来自源图片整理，仅用于资料浏览与训练，不构成投资建议。</p>
+    </header>
+
+    <main>
+      <section class="hero-band" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">Trading decision atlas</p>
+          <h2 id="heroTitle">按决策流程浏览源图</h2>
+          <p>这不是普通图库或文档列表。这版 MVP 把 12 张源图放进一条训练链路：先理解背景，再定位关键区，随后用盘口、订单流和做市商对冲环境补充判断，最后回到执行与复盘。</p>
+        </div>
+        <ol class="flow-strip" aria-label="核心决策链路">
+          <li>宏观背景</li>
+          <li>关键区</li>
+          <li>盘口/订单流</li>
+          <li>做市商对冲环境</li>
+          <li>入场执行</li>
+          <li>反转判断</li>
+          <li>复盘验证</li>
+        </ol>
+      </section>
+
+      <section class="control-band" aria-label="浏览控制">
+        <div class="control-inner">
+          <div class="summary-block">
+            <span class="metric">12</span>
+            <span>张源图，按交易判断流程组织</span>
+          </div>
+          <label class="search-box">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="输入：Delta 中性、GEX、0DTE、Call Wall...">
+          </label>
+          <div class="filters" id="stageFilters" aria-label="阶段筛选"></div>
+        </div>
+      </section>
+
+      <section class="map-band" aria-labelledby="mapTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Decision flow</p>
+            <h2 id="mapTitle">从背景到复盘的资料入口</h2>
+          </div>
+          <p>先按链路浏览，再进入单张图回查细节。带「待确认」的内容只保留为来源线索。</p>
+        </div>
+        <div class="stage-map" id="stageMap"></div>
+      </section>
+
+      <section class="content-band" aria-labelledby="libraryTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Source library</p>
+            <h2 id="libraryTitle">资料卡片</h2>
+          </div>
+          <p id="resultCount"></p>
+        </div>
+        <div class="source-grid" id="sourceGrid"></div>
+      </section>
+
+      <section class="guardrail-band" aria-label="边界说明">
+        <div class="guardrail">
+          <strong>使用边界</strong>
+          <span>页面只整理源文件中能确认的内容。手写长图、小字参数、模型效果和交易结论需要回看原图并人工确认，不应被理解为确定性交易信号。</span>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="sourceDialog" class="source-dialog">
+      <button class="dialog-close" id="dialogClose" aria-label="关闭">×</button>
+      <div id="dialogContent"></div>
+    </dialog>
+
+    <script src="data/catalog.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
