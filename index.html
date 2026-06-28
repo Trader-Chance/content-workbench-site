@@ -26,15 +26,15 @@
         </div>
         <div class="hero-metrics" aria-label="资料概览">
           <div>
-            <strong>12</strong>
+            <strong id="sourceTotalMetric">12</strong>
             <span>张源图</span>
           </div>
           <div>
-            <strong>8</strong>
+            <strong id="stageTotalMetric">8</strong>
             <span>个判断阶段</span>
           </div>
           <div>
-            <strong>2</strong>
+            <strong id="pendingTotalMetric">2</strong>
             <span>项待确认</span>
           </div>
         </div>
@@ -52,7 +52,7 @@
       <section class="control-band" aria-label="浏览控制">
         <div class="control-inner">
           <div class="summary-block">
-            <span class="metric">12</span>
+            <span class="metric" id="summaryTotalMetric">12</span>
             <span>张源图，按交易判断流程组织</span>
           </div>
           <label class="search-box">
@@ -61,6 +61,7 @@
           </label>
           <div class="control-actions" aria-label="快捷浏览">
             <button class="utility-button" id="pendingToggle" type="button" aria-pressed="false">只看待确认</button>
+            <button class="utility-button" id="jumpResults" type="button">查看结果</button>
             <button class="utility-button" id="clearSearch" type="button">清空筛选</button>
           </div>
           <div class="quick-terms" aria-label="高频关键词">

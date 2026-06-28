@@ -223,7 +223,7 @@ h3 {
 
 .control-inner {
   display: grid;
-  grid-template-columns: minmax(180px, 240px) minmax(220px, 1fr) minmax(180px, 260px);
+  grid-template-columns: minmax(180px, 240px) minmax(220px, 1fr) minmax(320px, 360px);
   gap: 16px;
   align-items: stretch;
 }
@@ -273,7 +273,7 @@ h3 {
 
 .control-actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -293,6 +293,7 @@ h3 {
 .utility-button {
   min-height: 56px;
   padding: 10px;
+  white-space: nowrap;
 }
 
 .utility-button.is-active,

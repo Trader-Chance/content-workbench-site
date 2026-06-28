@@ -9,8 +9,13 @@
   const activeContext = document.querySelector("#activeContext");
   const pendingToggle = document.querySelector("#pendingToggle");
   const clearSearch = document.querySelector("#clearSearch");
+  const jumpResults = document.querySelector("#jumpResults");
   const quickTerms = document.querySelector(".quick-terms");
   const flowStrip = document.querySelector(".flow-strip");
+  const sourceTotalMetric = document.querySelector("#sourceTotalMetric");
+  const stageTotalMetric = document.querySelector("#stageTotalMetric");
+  const pendingTotalMetric = document.querySelector("#pendingTotalMetric");
+  const summaryTotalMetric = document.querySelector("#summaryTotalMetric");
   const dialog = document.querySelector("#sourceDialog");
   const dialogContent = document.querySelector("#dialogContent");
   const dialogClose = document.querySelector("#dialogClose");
@@ -61,6 +66,14 @@
       })
     );
     filters.innerHTML = buttons.join("");
+  }
+
+  function renderMetrics() {
+    const pendingCount = sources.filter((source) => source.status === "待确认").length;
+    sourceTotalMetric.textContent = sources.length;
+    stageTotalMetric.textContent = stages.length;
+    pendingTotalMetric.textContent = pendingCount;
+    summaryTotalMetric.textContent = sources.length;
   }
 
   function renderStageMap() {
@@ -174,7 +187,7 @@
     activeStage = stage;
     refresh();
     if (shouldScroll) {
-      document.querySelector("#libraryTitle").scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToResults();
     }
   }
 
@@ -190,6 +203,10 @@
     pendingOnly = false;
     searchInput.value = "";
     refresh();
+  }
+
+  function scrollToResults() {
+    document.querySelector("#libraryTitle").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function closeDialog() {
@@ -284,6 +301,7 @@
   });
 
   clearSearch.addEventListener("click", resetFilters);
+  jumpResults.addEventListener("click", scrollToResults);
 
   stageMap.addEventListener("click", (event) => {
     const stageJump = event.target.closest("[data-stage-jump]");
@@ -326,6 +344,7 @@
   });
 
   renderFilters();
+  renderMetrics();
   renderStageMap();
   refresh();
 })();
