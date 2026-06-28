@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>交易决策训练图谱 MVP</title>
+    <meta name="description" content="交易决策训练图谱：按宏观背景、关键区、订单流、做市商对冲环境、入场执行、反转判断和复盘验证浏览源图资料。">
+    <title>交易决策训练图谱</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -22,14 +23,28 @@
           <h2 id="heroTitle">按决策流程浏览源图</h2>
           <p>这不是普通图库或文档列表。这版 MVP 把 12 张源图放进一条训练链路：先理解背景，再定位关键区，随后用盘口、订单流和做市商对冲环境补充判断，最后回到执行与复盘。</p>
         </div>
+        <div class="hero-metrics" aria-label="资料概览">
+          <div>
+            <strong>12</strong>
+            <span>张源图</span>
+          </div>
+          <div>
+            <strong>8</strong>
+            <span>个判断阶段</span>
+          </div>
+          <div>
+            <strong>2</strong>
+            <span>项待确认</span>
+          </div>
+        </div>
         <ol class="flow-strip" aria-label="核心决策链路">
-          <li>宏观背景</li>
-          <li>关键区</li>
-          <li>盘口/订单流</li>
-          <li>做市商对冲环境</li>
-          <li>入场执行</li>
-          <li>反转判断</li>
-          <li>复盘验证</li>
+          <li><button type="button" class="flow-step" data-stage="macro">宏观背景</button></li>
+          <li><button type="button" class="flow-step" data-stage="keyzone">关键区</button></li>
+          <li><button type="button" class="flow-step" data-stage="orderflow">盘口/订单流</button></li>
+          <li><button type="button" class="flow-step" data-stage="options">做市商对冲环境</button></li>
+          <li><button type="button" class="flow-step" data-stage="execution">入场执行</button></li>
+          <li><button type="button" class="flow-step" data-stage="reversal">反转判断</button></li>
+          <li><button type="button" class="flow-step" data-stage="review">复盘验证</button></li>
         </ol>
       </section>
 
@@ -43,7 +58,19 @@
             <span>搜索</span>
             <input id="searchInput" type="search" placeholder="输入：Delta 中性、GEX、0DTE、Call Wall...">
           </label>
+          <div class="control-actions" aria-label="快捷浏览">
+            <button class="utility-button" id="pendingToggle" type="button" aria-pressed="false">只看待确认</button>
+            <button class="utility-button" id="clearSearch" type="button">清空筛选</button>
+          </div>
+          <div class="quick-terms" aria-label="高频关键词">
+            <button type="button" data-term="Delta 中性">Delta 中性</button>
+            <button type="button" data-term="GEX">GEX</button>
+            <button type="button" data-term="0DTE">0DTE</button>
+            <button type="button" data-term="订单流">订单流</button>
+            <button type="button" data-term="关键区">关键区</button>
+          </div>
           <div class="filters" id="stageFilters" aria-label="阶段筛选"></div>
+          <p class="active-context" id="activeContext" aria-live="polite"></p>
         </div>
       </section>
 
